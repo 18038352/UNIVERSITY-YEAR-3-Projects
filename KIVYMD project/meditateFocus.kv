@@ -1,0 +1,96 @@
+MDScreen:
+    name: "meditateFocus"
+    MDFloatLayout:
+        md_bg_color: 1, 1, 1, 1
+        MDIconButton:
+            icon: "arrow-left"
+            pos_hint: {"center_y": .95}
+            user_font_size: "25sp"
+            theme_text_color: "Custom"
+            text_color: rgba(26, 24, 58, 255)
+            on_release:
+                root.manager.transition.direction = "right"
+                root.manager.current = "HomeScreen"
+        Image:
+            source: "meditateImage.jpg"
+            size_hint: .70, .75
+            pos_hint: {"center_x": .5, "center_y": .87}
+        MDFillRoundFlatButton:
+            text: "Self-Love Meditation"
+            size_hint: .66, .065
+            md_bg_color: [1,0,0,1]
+            pos_hint: {"center_x": .5, "center_y": .70}
+            on_release: app.meditate_btn()
+            canvas.before:
+                RoundedRectangle:
+                    size: self.size
+                    pos:self.pos
+                    radius: [5]
+        MDIconButton:
+            pos_hint: {"center_x": .9, "center_y": .70}
+            icon: "stop_button.png"
+            on_release: app.meditate_stop_btn()
+
+        MDFillRoundFlatButton:
+            text: "Spiritual Meditation"
+            size_hint: .66, .065
+
+            pos_hint: {"center_x": .5, "center_y": .55}
+            on_release: app.meditate_btn2()
+            canvas.before:
+                RoundedRectangle:
+                    size: self.size
+                    pos:self.pos
+                    radius: [5]
+        MDIconButton:
+            pos_hint: {"center_x": .9, "center_y": .55}
+            icon: "stop_button.png"
+            on_release: app.meditate_stop_btn2()
+
+        MDFillRoundFlatButton:
+            text: "Achieve Focus Meditation"
+            size_hint: .66, .065
+            md_bg_color: rgba(255, 165, 0)
+            pos_hint: {"center_x": .5, "center_y": .40}
+            on_release: app.meditate_btn3()
+            canvas.before:
+                RoundedRectangle:
+                    size: self.size
+                    pos:self.pos
+                    radius: [5]
+        MDIconButton:
+            pos_hint: {"center_x": .9, "center_y": .40}
+            icon: "stop_button.png"
+            on_release: app.meditate_stop_btn3()
+
+        MDFillRoundFlatButton:
+            text: "Mindfulness Meditation"
+            size_hint: .66, .065
+            md_bg_color: rgba(60, 179, 113)
+            pos_hint: {"center_x": .5, "center_y": .25}
+            on_release: app.meditate_btn4()
+            canvas.before:
+                RoundedRectangle:
+                    size: self.size
+                    pos:self.pos
+                    radius: [5]
+        MDIconButton:
+            pos_hint: {"center_x": .9, "center_y": .25}
+            icon: "stop_button.png"
+            on_release: app.meditate_stop_btn4()
+
+        MDFillRoundFlatButton:
+            text: "Walking Meditation"
+            size_hint: .66, .065
+            md_bg_color: rgba(106, 90, 205)
+            pos_hint: {"center_x": .5, "center_y": .10}
+            on_release: app.meditate_walk()
+            canvas.before:
+                RoundedRectangle:
+                    size: self.size
+                    pos:self.pos
+                    radius: [5]
+        MDIconButton:
+            pos_hint: {"center_x": .9, "center_y": .10}
+            icon: "stop_button.png"
+            on_release: app.meditate_stop_walk()

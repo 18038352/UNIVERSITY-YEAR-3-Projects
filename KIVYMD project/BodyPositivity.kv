@@ -1,0 +1,48 @@
+MDScreen:
+    name: "BodyPositivity"
+    MDFloatLayout:
+        md_bg_color: 1, 1, 1, 1
+        Video:
+            id: vid
+            source: app.meditate_btn5()
+            options: {'eos': 'loop'}
+        MDFillRoundFlatButton:
+            text: "Daily Exercise (20 minutes)"
+            size_hint: .66, .065
+            md_bg_color: rgba(60, 179, 113)
+            pos_hint: {"center_x": .5, "center_y": .70}
+            on_release:
+                setattr(vid, 'source', app.meditate_btn5())
+                setattr(vid, 'state', 'play')
+            canvas.before:
+                RoundedRectangle:
+                    size: self.size
+                    pos:self.pos
+                    radius: [5]
+        MDIconButton:
+            pos_hint: {"center_x": .9, "center_y": .70}
+            icon: "stop_button.png"
+            on_release:
+                setattr(vid, 'state', 'stop')
+        MDIconButton:
+            pos_hint: {"center_x": .1, "center_y": .70}
+            icon: "pause_.png"
+            on_release:
+                setattr(vid, 'state', 'pause')
+        MDIconButton:
+            icon: "arrow-left"
+            pos_hint: {"center_y": .95}
+            user_font_size: "25sp"
+            theme_text_color: "Custom"
+            text_color: rgba(26, 24, 58, 255)
+            on_release:
+                root.manager.transition.direction = "right"
+                root.manager.current = "HomeScreen"
+        Image:
+            source: "health_body.png"
+            size_hint: .40, .50
+            pos_hint: {"center_x": .5, "center_y": .87}
+        Image:
+            source: "happy_body.jpg"
+            size_hint: .70, .70
+            pos_hint: {"center_x": .5, "center_y": .12}

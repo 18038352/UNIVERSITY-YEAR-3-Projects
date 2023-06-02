@@ -1,0 +1,83 @@
+MDScreen:
+    name: "AnxietyDepression"
+    MDFloatLayout:
+        md_bg_color: rgba(240, 240, 240)
+        MDIconButton:
+            icon: "arrow-left"
+            pos_hint: {"center_y": .95}
+            user_font_size: "25sp"
+            theme_text_color: "Custom"
+            text_color: rgba(26, 24, 58, 255)
+            on_release:
+                root.manager.transition.direction = "right"
+                root.manager.current = "HomeScreen"
+        Image:
+            source: "anxiety quote.jpg"
+            size_hint: .70, .75
+            pos_hint: {"center_x": .5, "center_y": .87}
+        MDFillRoundFlatButton:
+            text: "Anxiety Track 1"
+            size_hint: .66, .065
+            background_color: rgba(0, 243, 204)
+            pos_hint: {"center_x": .5, "center_y": .70}
+            on_release: app.anxiety_btn()
+            canvas.before:
+                RoundedRectangle:
+                    size: self.size
+                    pos:self.pos
+                    radius: [5]
+        MDIconButton:
+            pos_hint: {"center_x": .9, "center_y": .70}
+            icon: "stop_button.png"
+            on_release: app.anxiety_stop_btn()
+        Image:
+            source: "depression quote.jpg"
+            size_hint: .70, .75
+            pos_hint: {"center_x": .5, "center_y": .40}
+        MDFillRoundFlatButton:
+            text: "Anxiety Track 2"
+            size_hint: .66, .065
+            background_color: rgba(147, 233, 202)
+            pos_hint: {"center_x": .5, "center_y": .60}
+            on_release: app.anxiety_btn2()
+            canvas.before:
+                RoundedRectangle:
+                    size: self.size
+                    pos:self.pos
+                    radius: [5]
+        MDIconButton:
+            pos_hint: {"center_x": .9, "center_y": .60}
+            icon: "stop_button.png"
+            on_release: app.anxiety_stop_btn2()
+
+        MDFillRoundFlatButton:
+            text: "Depression Track 1"
+            size_hint: .66, .065
+            background_color: rgba(147, 233, 202)
+            pos_hint: {"center_x": .5, "center_y": .20}
+            on_release: app.depression_btn()
+            canvas.before:
+                RoundedRectangle:
+                    size: self.size
+                    pos:self.pos
+                    radius: [5]
+        MDIconButton:
+            pos_hint: {"center_x": .9, "center_y": .20}
+            icon: "stop_button.png"
+            on_release: app.depression_stop_btn()
+
+        MDFillRoundFlatButton:
+            text: "Depression Track 2"
+            size_hint: .66, .065
+            background_color: rgba(147, 233, 202)
+            pos_hint: {"center_x": .5, "center_y": .10}
+            on_release: app.depression_btn2()
+            canvas.before:
+                RoundedRectangle:
+                    size: self.size
+                    pos:self.pos
+                    radius: [5]
+        MDIconButton:
+            pos_hint: {"center_x": .9, "center_y": .10}
+            icon: "stop_button.png"
+            on_release: app.depression_stop_btn2()

@@ -1,0 +1,186 @@
+MDScreen:
+    name: "HomeScreen"
+    MDFloatLayout:
+        md_bg_color: rgba(147, 233, 202)
+        MDBoxLayout:
+            orientation:'vertical'
+        Image:
+            source: "brainlogo1.png"
+            size_hint: .70, .90
+            pos_hint: {"center_x": .5, "center_y": .90}
+        MDBoxLayout:
+            size_hint_y:.25
+            padding:dp(25)
+            MDBoxLayout:
+                orientation:"vertical"
+                MDBoxLayout:
+                    adaptive_size:True
+                    spacing:dp(10)
+
+        MDFillRoundFlatButton:
+            text: "User Guide"
+            font_size: 14
+            md_bg_color: rgba(0, 0, 255)
+            pos_hint: {"center_x": .5, "center_y": .77}
+            on_release:
+                root.manager.transition.direction = "left"
+                root.manager.current = "UserGuide"
+
+
+        MDTextButton:
+            text: "log-out"
+            font_size: "12sp"
+            pos_hint: {"center_x": .5, "center_y": .03}
+            color: rgba(52, 0, 231, 255)
+            on_release:
+                root.manager.transition.direction = "left"
+                root.manager.current = "login"
+        MDGridLayout:
+            size_hint_y:.75
+            cols:2
+            padding:[dp(18),dp(18),dp(18),dp(35)]
+            spacing:dp(15)
+            ElementCard:
+                image:"to-do-list.png"
+                text:"To-DO-List"
+                Button:
+                    text: ""
+                    size_hint: .80, .8
+                    background_color: 0,0,0,0
+                    pos_hint: {"center_x": .5, "center_y": .16}
+                    on_release:
+                        root.manager.transition.direction = "left"
+                        root.manager.current = "ToDoScreen"
+                    canvas.before:
+                        Color:
+                            rgb: rgba(255, 255, 255)
+                        RoundedRectangle:
+                            size: self.size
+                            pos:self.pos
+                            radius: [5]
+
+            ElementCard:
+                image:"studypic.jpg"
+                text:"Brain Feeder"
+                Button:
+                    text: ""
+                    size_hint: .80, .8
+                    background_color: 0,0,0,0
+                    pos_hint: {"center_x": .5, "center_y": .16}
+                    on_release:
+                        root.manager.transition.direction = "left"
+                        root.manager.current = "BrainFeeder"
+                    canvas.before:
+                        Color:
+                            rgb: rgba(255, 255, 255)
+                        RoundedRectangle:
+                            size: self.size
+                            pos:self.pos
+                            radius: [5]
+
+
+            ElementCard:
+                image:"exercise.png.png"
+                text:"Daily Exercise"
+                Button:
+                    text: ""
+                    size_hint: .80, .8
+                    background_color: 0,0,0,0
+                    pos_hint: {"center_x": .5, "center_y": .16}
+                    on_release:
+                        root.manager.transition.direction = "left"
+                        root.manager.current = "BodyPositivity"
+                    canvas.before:
+                        Color:
+                            rgb: rgba(255, 255, 255)
+                        RoundedRectangle:
+                            size: self.size
+                            pos:self.pos
+                            radius: [5]
+
+
+
+            ElementCard:
+                image:"meditation.png"
+                text:"Meditate"
+                Button:
+                    text: ""
+                    size_hint: .80, .8
+                    background_color: 0,0,0,0
+                    pos_hint: {"center_x": .5, "center_y": .16}
+                    on_release:
+                        root.manager.transition.direction = "left"
+                        root.manager.current = "meditateFocus"
+                    canvas.before:
+                        Color:
+                            rgb: rgba(255, 255, 255)
+                        RoundedRectangle:
+                            size: self.size
+                            pos:self.pos
+                            radius: [5]
+
+
+            ElementCard:
+                image:"happy.png.png"
+                text:"Anxiety/Depression Tracks"
+                Button:
+                    text: ""
+                    size_hint: .80, .8
+                    background_color: 0,0,0,0
+                    pos_hint: {"center_x": .5, "center_y": .16}
+                    on_release:
+                        root.manager.transition.direction = "left"
+                        root.manager.current = "AnxietyDepression"
+                    canvas.before:
+                        Color:
+                            rgb: rgba(255, 255, 255)
+                        RoundedRectangle:
+                            size: self.size
+                            pos:self.pos
+                            radius: [5]
+
+
+
+
+            ElementCard:
+                image:"sleep.png.png"
+                text:"Better Sleep"
+                Button:
+                    text: ""
+                    size_hint: .80, .8
+                    background_color: 0,0,0,0
+                    pos_hint: {"center_x": .5, "center_y": .16}
+                    on_release:
+                        root.manager.transition.direction = "left"
+                        root.manager.current = "betterSleep"
+                    canvas.before:
+                        Color:
+                            rgb: rgba(255, 255, 255)
+                        RoundedRectangle:
+                            size: self.size
+                            pos:self.pos
+                            radius: [5]
+
+
+<ElementCard@MDCard>:
+    md_bg_color: rgba(255, 255, 255)
+    padding:dp(1)
+    spacing:dp(1)
+    radius:dp(5)
+    ripple_behavior: True
+    image:''
+    text:""
+
+
+    orientation:'vertical'
+    Image:
+        source:root.image
+        size_hint_y: 2.2
+    MDBoxLayout:
+        orientation:'vertical'
+        MDLabel:
+            halign:"center"
+            text:root.text
+
+
+

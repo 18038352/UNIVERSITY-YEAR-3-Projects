@@ -1,0 +1,81 @@
+MDScreen:
+    name: "AddingTodo"
+    description: description
+
+    MDFloatLayout:
+        md_bg_color: rgba(255, 255, 156)
+        MDIconButton:
+            icon: "arrow-left"
+            user_font_size: "35sp"
+            pos_hint: {"center_y": .95}
+            text_color: rgba(60, 60, 60)
+            on_release:
+                root.manager.transition.direction = "right"
+                root.manager.current = "ToDoScreen"
+        MDLabel:
+            text: "Add Goal"
+            pos_hint: {"center_x": .6, "center_y": .89}
+            font_size: "30sp"
+        MDFloatLayout:
+            size_hint: .80, .08
+            pos_hint: {"center_x": .5, "center_y": .80}
+            canvas:
+                Color:
+                    rgba: (238/255, 238/255, 238/255, 1)
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [25]
+            TextInput:
+                id: title
+                hint_text: "Title"
+                size_hint: 1, None
+                pos_hint: {"center_x": .5, "center_y": .45}
+                height: self.minimum_height
+                multiline: False
+                cursor_color: rgba(147, 233, 202)
+                cursor_width: "1sp"
+                background_color: 0, 0, 0, 0
+                foreground_color: rgba(60, 60, 60)
+                padding: 15
+                font_size: "15sp"
+        MDFloatLayout:
+            size_hint: .85, .28
+            pos_hint: {"center_x": .5, "center_y": .58}
+            canvas:
+                Color:
+                    rgba: (238/255, 238/255, 238/255, 1)
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [25]
+            TextInput:
+                id: description
+                hint_text: "Description"
+                size_hint: 1, None
+                pos_hint: {"center_x": .5, "center_y": .45}
+                height: 180
+                cursor_color: rgba(147, 233, 202)
+                cursor_width: "1sp"
+                background_color: 0, 0, 0, 0
+                foreground_color: rgba(60, 60, 60)
+                padding: 15
+                font_size: "16sp"
+        Button:
+            text: "Add Task"
+            pos_hint: {"center_x": .5, "center_y": .36}
+            size_hint: .45, .08
+            background_color: 0, 0, 0, 0
+            foreground_color: rgba(147, 233, 202)
+            font_size: "15sp"
+            color: 1, 1, 1, 1
+            on_release:
+                app.add_list(title.text, description.text)
+            canvas.before:
+                Color:
+                    rgba: (147/255, 233/255, 202/255, 1)
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [25]
+

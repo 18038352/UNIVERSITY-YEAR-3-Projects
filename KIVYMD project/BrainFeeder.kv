@@ -1,0 +1,101 @@
+MDScreen:
+    name: "BrainFeeder"
+
+
+    MDFloatLayout:
+        md_bg_color: 1, 1, 1, 1
+        MDIconButton:
+            icon: "arrow-left"
+            pos_hint: {"center_y": .95}
+            user_font_size: "25sp"
+            theme_text_color: "Custom"
+            text_color: rgba(26, 24, 58, 255)
+            on_release:
+                root.manager.transition.direction = "right"
+                root.manager.current = "HomeScreen"
+        MDIconButton:
+            pos_hint: {"center_x": 0.10, "center_y": 0.85}
+            icon: "nature_btn.png"
+            on_release: app.nature_btn()
+        MDIconButton:
+            pos_hint: {"center_x": 0.35, "center_y": 0.85}
+            icon: "classical_btn.png"
+            on_release: app.piano_btn()
+
+        MDIconButton:
+            pos_hint: {"center_x": 0.60, "center_y": 0.85}
+            icon: "lofi_btn.png"
+            on_release: app.lofi_btn()
+
+        MDIconButton:
+            pos_hint: {"center_x": 0.85, "center_y": 0.85}
+            icon: "jazz_btn.png"
+            on_release: app.jazz_btn()
+        MDLabel:
+            text: "Learning Timer"
+            font_size: "25sp"
+            pos_hint: {"center_x": .75, "center_y": 0.65}
+            bold: True
+        MDIconButton:
+            icon: "plus"
+            pos_hint: {"center_x": .5, "center_y": .50}
+            md_bg_color: rgba(147, 233, 202)
+            user_font_size: "25sp"
+            text_color: 1,1,1,1
+            on_release: app.learning_timer()
+        MDLabel:
+            id: study_timer
+            pos_hint: {"center_y": .5}
+            halign: "center"
+            font_size: "25sp"
+            bold: True
+        MDRaisedButton:
+            text: " Stop Nature"
+            pos_hint: {"center_x": .13, "center_y": 0.75}
+            on_release: app.stop_nature()
+        MDRaisedButton:
+            text: "Stop Piano"
+            pos_hint: {"center_x": .38, "center_y": 0.75}
+            on_release: app.stop_piano()
+        MDRaisedButton:
+            text: "Stop Lofi"
+            pos_hint: {"center_x": .63, "center_y": 0.75}
+            on_release: app.stop_lofi()
+        MDRaisedButton:
+            text: "Stop Jazz "
+            pos_hint: {"center_x": .87, "center_y": 0.75}
+            on_release: app.stop_jazz()
+        MDRaisedButton:
+            text: "Stop Timer"
+            pos_hint: {"center_x": .5, "center_y": .30}
+            on_release: app.stop_timer()
+
+    NavBar:
+        size_hint: .85, .1
+        pos_hint: {"center_x": .5, "center_y": .15}
+        elevation: 5
+        md_bg_color: 1, 1, 1, 1
+        radius: [16]
+        MDGridLayout:
+            cols: 4
+            size_hint_x: .6
+            spacing: 90
+            pos_hint: {"center_x": .5, "center_y": .5}
+            MDIconButton:
+                id: nav_icon1
+                icon: "home"
+                ripple_scale: 0
+                user_font_size: "25sp"
+                text_color: 1, 0, 0, 1
+                on_release:
+                    root.manager.transition.direction = "right"
+                    root.manager.current = "BrainFeeder"
+            MDIconButton:
+                id: nav_icon2
+                icon: "image"
+                ripple_scale: 0
+                user_font_size: "25sp"
+                text_color: 1, 0, 0, 1
+                on_release:
+                    root.manager.transition.direction = "left"
+                    root.manager.current = "motivation_images"

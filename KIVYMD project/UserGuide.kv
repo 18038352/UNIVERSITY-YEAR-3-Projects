@@ -1,0 +1,17 @@
+MDScreen:
+    name: "UserGuide"
+    MDFloatLayout:
+        md_bg_color: rgba(147, 233, 202)
+        Image:
+            source: "UserGuide.png"
+            allow_stretch: True
+            keep_ratio: True
+    MDIconButton:
+        icon: "arrow-left"
+        pos_hint: {"center_y": .95}
+        user_font_size: "25sp"
+        theme_text_color: "Custom"
+        text_color: rgba(26, 24, 58, 255)
+        on_release:
+            root.manager.transition.direction = "right"
+            root.manager.current = "HomeScreen"

@@ -1,0 +1,63 @@
+MDScreen:
+    name: "WelcomePage"
+    MDFloatLayout:
+
+        Image:
+            source: "brainlogo1.png"
+            size_hint: .8, .8
+            pos_hint: {"center_x": .5, "center_y": .65}
+        MDLabel:
+            text: "Become Better and MindShift Together"
+            font_size: "12sp"
+            pos_hint: {"center_x": .5, "center_y": .3}
+            size_hint_x: .85
+            halign: "center"
+            color: rgba(127, 127, 127, 255)
+        Button:
+            text: "Login"
+            size_hint: .66, .065
+            background_color: 0,0,0,0
+            pos_hint: {"center_x": .5, "center_y": .18}
+            on_release:
+                root.manager.transition.direction = "left"
+                root.manager.current = "login"
+            canvas.before:
+                Color:
+                    rgb: rgba(147, 233, 202)
+                RoundedRectangle:
+                    size: self.size
+                    pos:self.pos
+                    radius: [5]
+        Button:
+            text: "Sign Up"
+            size_hint: .66, .065
+            background_color: 0,0,0,0
+            pos_hint: {"center_x": .5, "center_y": .09}
+            on_release:
+                root.manager.transition.direction = "left"
+                root.manager.current = "signup"
+            canvas.before:
+                Color:
+                    rgb: rgba(147, 233, 202)
+                RoundedRectangle:
+                    size: self.size
+                    pos:self.pos
+                    radius: [5]
+        MDLabel:
+            text: "MindShifter"
+            pos_hint: {"center_x": .5, "center_y": .5}
+            font_size: "22sp"
+            size_hint_x: .85
+            halign: "center"
+            color: rgba(147, 233, 202)
+
+
+
+
+
+
+
+
+
+
+

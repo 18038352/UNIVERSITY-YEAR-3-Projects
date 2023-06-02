@@ -1,0 +1,78 @@
+<ToDoCard>
+    elevation: 10
+    md_bg_color: 1, 1, 1, 1
+    radius: [8]
+    MDFloatLayout:
+        id: bar
+        size_hint: .01, .9
+        pos_hint: {"center_x": .02, "center_y": .5}
+        md_bg_color: 1, 170/255, 23/255, 1
+    MDLabel:
+        id: title
+        text: root.title
+        markup: True
+        font_size: "22sp"
+        size_hint_x: .8
+        pos_hint: {"center_x": .45, "center_y": .8}
+    MDCheckbox:
+        size_hint: None, None
+        size: "45dp", "45dp"
+        unselected_color: 1, 170/255, 23/255, 1
+        selected_color: 0, 179/255, 0, 1
+        pos_hint: {"center_x": .95, "center_y": .8}
+        on_active: app.on_complete(*args, description, bar, title)
+    MDLabel:
+        id: description
+        text: root.description
+        markup: True
+        size_hint_x: .9
+        line_height: .8
+        pos_hint: {"center_x": .50, "center_y": .5}
+
+
+MDScreen:
+    date: date
+    todo_list: todo_list
+    name: "ToDoScreen"
+    MDFloatLayout:
+        md_bg_color: rgba(255, 255, 156)
+        MDIconButton:
+            icon: "arrow-left"
+            pos_hint: {"center_y": .95}
+            user_font_size: "25sp"
+            text_color: rgba(60, 60, 60)
+            on_release:
+                root.manager.transition.direction = "right"
+                root.manager.current = "HomeScreen"
+        MDLabel:
+            text: "My Goals"
+            pos_hint: {"center_x": .56, "center_y": .90}
+            font_size: "30sp"
+        MDLabel:
+            id: date
+            text: ""
+            pos_hint: {"center_x": .565, "center_y": .85}
+            font_size: "20sp"
+        MDIconButton:
+            icon: "plus"
+            pos_hint: {"center_x": .87, "center_y": .922}
+            md_bg_color: rgba(147, 233, 202)
+            user_font_size: "25sp"
+            text_color: 1,1,1,1
+            on_release:
+                root.manager.transition.direction = "left"
+                root.manager.current = "AddingTodo"
+        ScrollView:
+            do_scroll_y: True
+            do_scroll_x: False
+            size_hint_y: .80
+            pos_hint: {"center_x": .49, "y": 0}
+            bar_width: 0
+            GridLayout:
+                id: todo_list
+                cols: 1
+                height: self.minimum_height
+                row_default_height: 75
+                size_hint_y: None
+                padding: 12, 8
+                spacing: 12, 8
